@@ -11,9 +11,11 @@ import (
 func Hello(name string) (string, error) {
 	// if no name is provided, return and error with a message
 	if name == "" {
-		return "", errors.New(" Empty name")
+		return name, errors.New(" Empty name")
 	}
 	message := fmt.Sprintf(randomFormat(), name)
+	// message := fmt.Sprintf(randomFormat())
+	//vecause the name is nor returned in the formated message, it breaks the test for name
 	return message, nil
 }
 func init() {
